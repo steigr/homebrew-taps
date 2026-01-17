@@ -2,7 +2,7 @@ class SetupFormula < Formula
 
   url "https://github.com/steigr/homebrew-taps.git", branch: "main"
   homepage "https://github.com/steigr/homebrew-taps"
-  version "0.1.2"
+  version "0.1.4"
 
   depends_on "antidote"
   depends_on "arduino-cli"
@@ -49,9 +49,16 @@ class SetupFormula < Formula
 
   def install
     resource("setup").stage do
-      system "bash", "-c", "touch INSTALL"
-      prefix.install "INSTALL"
-      system "bash", "setup.sh"
+      system "bash", "-c",'bin/setup.sh > system-configure'
+      bin.install "system-configure"
     end
+  end
+
+  def caveats
+    <<~EOS
+      \033[1;36mNext steps:\033[0m
+        • Run \033[1;33msystem-configure\033[0m to complete the setup
+        • Restart your shell: \033[1;33mexec $SHELL\033[0m
+    EOS
   end
 end
