@@ -5,8 +5,8 @@ cask "setup" do
   version :latest
   sha256 :no_check
 
-  depends_on :formula => "steigr/setup-formula"
-  depends_on :cask    => "steigr/setup-cask"
+  depends_on :formula => "steigr/taps/setup-formula"
+  depends_on :cask    => "steigr/taps/setup-cask"
 
   def install
     system "bash", "-c", "touch INSTALL"
