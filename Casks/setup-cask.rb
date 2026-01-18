@@ -36,7 +36,6 @@ cask "setup-cask" do
     zen
 
     obs
-    obsbot-center
 
     vscodium
     microsoft-azure-storage-explorer
