@@ -15,7 +15,7 @@ cask "setup-cask" do
     tower
     arduino-ide
     finicky
-    hiddenbar
+    jordanbaird-ice
     loopback
     rapidapi
     transmit
@@ -24,19 +24,26 @@ cask "setup-cask" do
     iterm2
     lunar
     slack
-    vscodium
     dash
     font-victor-mono-nerd-font
     jetbrains-toolbox
-    microsoft-azure-storage-explorer
     wireshark-app
     docker-desktop
     handbrake-app
     kaleidoscope
+    tailscale-app
     openzfs
     zen
+
     obs
     obsbot-center
+
+    vscodium
+    microsoft-azure-storage-explorer
+    microsoft-excel
+    microsoft-word
+    microsoft-powerpoint
+
   ].map{|cask| depends_on :cask => cask }
 
   # def install
