@@ -44,9 +44,4 @@ cask "setup-cask" do
     microsoft-powerpoint
 
   ].map{|cask| depends_on :cask => cask }
-
-  # def install
-  #   system "bash", "-c", "touch INSTALL"
-  #   prefix.install "INSTALL"
-  # end
 end

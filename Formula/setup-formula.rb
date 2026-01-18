@@ -4,45 +4,47 @@ class SetupFormula < Formula
   homepage "https://github.com/steigr/homebrew-taps"
   version "0.1.7"
 
-  depends_on "antidote"
-  depends_on "arduino-cli"
-  depends_on "autossh"
-  depends_on "azure-cli"
-  depends_on "base64"
-  depends_on "bash"
-  depends_on "bat"
-  depends_on "btop"
-  depends_on "container"
-  depends_on "dfu-util"
-  depends_on "dockutil"
-  depends_on "dyff"
-  depends_on "eim"
-  depends_on "ffmpeg"
-  depends_on "fzf"
-  depends_on "git-flow-next"
-  depends_on "glib"
-  depends_on "hcloud"
-  depends_on "helm"
-  depends_on "iproute2mac"
-  depends_on "kind"
-  depends_on "krew"
-  depends_on "kubebuilder"
-  depends_on "kubelogin"
-  depends_on "kubie"
-  depends_on "libdvdcss"
-  depends_on "libyaml"
-  depends_on "mas"
-  depends_on "mise"
-  depends_on "oh-my-posh"
-  depends_on "pam-reattach"
-  depends_on "scw"
-  depends_on "skopeo"
-  depends_on "stern"
-  depends_on "trivy"
-  depends_on "uv"
-  depends_on "wget"
-  depends_on "yq"
-  depends_on "zsh"
+  %W[
+    antidote
+    arduino-cli
+    autossh
+    azure-cli
+    base64
+    bash
+    bat
+    btop
+    container
+    dfu-util
+    dockutil
+    dyff
+    eim
+    ffmpeg
+    fzf
+    git-flow-next
+    glib
+    hcloud
+    helm
+    iproute2mac
+    kind
+    krew
+    kubebuilder
+    kubelogin
+    kubie
+    libdvdcss
+    libyaml
+    mas
+    mise
+    oh-my-posh
+    pam-reattach
+    scw
+    skopeo
+    stern
+    trivy
+    uv
+    wget
+    yq
+    zsh
+  ].map{|item| depends_on item }
 
   depends_on "steigr/taps/freerdp" => [:build ]
 
