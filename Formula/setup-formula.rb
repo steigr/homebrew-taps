@@ -2,7 +2,7 @@ class SetupFormula < Formula
 
   url "https://github.com/steigr/homebrew-taps.git", branch: "main"
   homepage "https://github.com/steigr/homebrew-taps"
-  version "0.1.6"
+  version "0.1.7"
 
   depends_on "antidote"
   depends_on "arduino-cli"
@@ -34,6 +34,7 @@ class SetupFormula < Formula
   depends_on "mas"
   depends_on "mise"
   depends_on "oh-my-posh"
+  depends_on "pam-reattach"
   depends_on "scw"
   depends_on "skopeo"
   depends_on "stern"
