@@ -43,7 +43,7 @@ class SetupFormula < Formula
   depends_on "yq"
   depends_on "zsh"
 
-  depends_on :formula => "steigr/taps/freerdp", :args => ["--build-from-source"]
+  depends_on "steigr/taps/freerdp" => [:build ]
 
   resource "setup" do
     url "https://github.com/steigr/dotfiles.git", branch: "main"
