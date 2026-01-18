@@ -1,10 +1,18 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-
-  url "https://github.com/FreeRDP/FreeRDP/releases/download/3.17.2/freerdp-3.17.2.tar.gz"
-  sha256 "c42c712ad879bf06607b78b8c3fad98e08c82f73f4e0bc1693552900041e692a"
+  url "https://github.com/FreeRDP/FreeRDP/releases/download/3.20.2/freerdp-3.20.2.tar.gz"
+  sha256 "9fd28a5fc4167575d0fa91edbdab58cf7dd96a445a57d77fdb2df965b40eeb6d"
   license "Apache-2.0"
+
+  bottle do
+    sha256 arm64_tahoe:   "bab191cc7ea4a80d018be152418d3875d650a8ab1b74374f471b475732dc8f8c"
+    sha256 arm64_sequoia: "a3bf5cf78a4765689a9a518b958407108615f51abc765f8afcab55c6953a8578"
+    sha256 arm64_sonoma:  "a13fb20cf0cc795a32e9d24c90305345d8c8a9f16bdc5ff6f0a28ab4d40c053f"
+    sha256 sonoma:        "cbab7582af01e0ee5fd6c2fe2e37b4a26e476f0e52c4705e459e4d30d22f904d"
+    sha256 arm64_linux:   "db1545621a1ca70cd9d4308d3682cf934dfb8e4704208d1f81ea2157d5636bb1"
+    sha256 x86_64_linux:  "86d8e916fe1875271aed8e3e03315266cb498e05acf4004687a8ae354970108a"
+  end
 
   head do
     url "https://github.com/FreeRDP/FreeRDP.git", branch: "master"
@@ -39,7 +47,7 @@ class Freerdp < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "glib"
-    depends_on "icu4c@77"
+    depends_on "icu4c@78"
     depends_on "krb5"
     depends_on "libfuse"
     depends_on "systemd"
@@ -94,6 +102,15 @@ class Freerdp < Formula
 
   def caveats
     extra = ""
+    on_macos do
+      extra = <<~EOS
+
+        XQuartz provides an XServer for macOS. The XQuartz can be installed
+        as a package from www.xquartz.org or as a Homebrew cask:
+          brew install --cask xquartz
+      EOS
+    end
+
     <<~EOS
       xfreerdp is an X11 application that requires an XServer be installed
       and running. Lack of a running XServer will cause a "$DISPLAY" error.
@@ -102,8 +119,6 @@ class Freerdp < Formula
   end
 
   test do
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     success = `#{bin}/xfreerdp --version` # not using system as expected non-zero exit code
     details = $CHILD_STATUS
     raise "Unexpected exit code #{$CHILD_STATUS} while running xfreerdp" if !success && details.exitstatus != 128
