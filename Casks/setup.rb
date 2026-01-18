@@ -8,7 +8,7 @@ cask "setup" do
   depends_on :formula => "steigr/taps/setup-formula"
   depends_on :cask    => "steigr/taps/setup-cask"
 
-  depends_on :formula    => "steigr/taps/freerdp"
+  depends_on :formula    => "steigr/taps/freerdp", :args => ["--build-from-source"]
 
   def install
     system "bash", "-c", "touch INSTALL"
