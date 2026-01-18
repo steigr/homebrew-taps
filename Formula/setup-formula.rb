@@ -2,7 +2,7 @@ class SetupFormula < Formula
 
   url "https://github.com/steigr/homebrew-taps.git", branch: "main"
   homepage "https://github.com/steigr/homebrew-taps"
-  version "0.1.7"
+  version "0.1.8"
 
   %W[
     antidote
@@ -44,6 +44,7 @@ class SetupFormula < Formula
     wget
     yq
     zsh
+    coreutils
   ].map{|item| depends_on item }
 
   depends_on "steigr/taps/freerdp" => [:build ]
