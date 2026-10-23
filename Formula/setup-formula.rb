@@ -2,7 +2,7 @@ class SetupFormula < Formula
 
   url "https://github.com/steigr/homebrew-taps.git", branch: "main"
   homepage "https://github.com/steigr/homebrew-taps"
-  version "0.1.8"
+  version "0.1.9"
 
   %W[
     antidote
@@ -13,7 +13,6 @@ class SetupFormula < Formula
     bash
     bat
     btop
-    container
     dfu-util
     dockutil
     dyff
